@@ -53,12 +53,18 @@ flutter:
   uses-material-design: true
 
   fonts:
+    - family: Comfortaa
+      fonts:
+        - asset: assets/fonts/Comfortaa-Light.ttf
+        - asset: assets/fonts/Comfortaa-Regular.ttf
+        - asset: assets/fonts/Comfortaa-Medium.ttf
+        - asset: assets/fonts/Comfortaa-SemiBold.ttf
+        - asset: assets/fonts/Comfortaa-Bold.ttf
+
     - family: Outfit
       fonts:
-        - asset: fonts/Outfit-Regular.ttf
-    - family: Outfit-Bold
-      fonts:
-        - asset: fonts/Outfit-Bold.ttf
+        - asset: assets/fonts/Outfit-Bold.ttf
+        - asset: assets/fonts/Outfit-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   assets:

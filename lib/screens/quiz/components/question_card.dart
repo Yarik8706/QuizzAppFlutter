@@ -33,14 +33,11 @@ class QuestionCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(
-            child: Timer()
-          ),
+          Center(child: Timer()),
           Text(
             questionNumber,
             textAlign: TextAlign.left,
-            style: Theme
-                .of(context)
+            style: Theme.of(context)
                 .textTheme
                 .labelSmall
                 .copyWith(color: kBlackColor),
@@ -49,8 +46,7 @@ class QuestionCard extends StatelessWidget {
             height: 70,
             child: Text(
               question.question,
-              style: Theme
-                  .of(context)
+              style: Theme.of(context)
                   .textTheme
                   .titleSmall
                   .copyWith(color: kBlackColor),
@@ -63,39 +59,52 @@ class QuestionCard extends StatelessWidget {
               children: [
                 ...List.generate(
                   question.options.length,
-                      (index) =>
-                      Option(
-                        index: index,
-                        text: question.options[index],
-                        press: () => _controller.checkAns(question, index),
-                      ),
+                  (index) => Option(
+                    index: index,
+                    text: question.options[index],
+                    press: () => _controller.checkAns(question, index),
+                  ),
                 ),
-              ],),
+              ],
+            ),
           ),
           Center(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(onPressed: _controller.nextQuestion,
+                ElevatedButton(
+                    onPressed: _controller.nextQuestion,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffcdf0ea),
-                      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(19.0)),
                       ),
                     ),
-                    child: Text("Skip", style: Theme.of(context).textTheme.labelSmall.copyWith(color: kBlackColor))
+                    child: Text("Skip",
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelSmall
+                            .copyWith(color: kBlackColor))),
+                SizedBox(
+                  width: 15,
                 ),
-                SizedBox(width: 15,),
-                ElevatedButton(onPressed: _controller.nextQuestion,
+                ElevatedButton(
+                    onPressed: _controller.nextQuestion,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffb1b2ff),
-                      padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 60, vertical: 10),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(19.0)),
                       ),
                     ),
-                    child: Text("Next", style: Theme.of(context).textTheme.labelSmall.copyWith(color: Colors.white))
-                ),
+                    child: Text("Next",
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelSmall
+                            .copyWith(color: Colors.white))),
               ],
             ),
           ),

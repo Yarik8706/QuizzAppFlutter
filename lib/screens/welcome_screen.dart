@@ -20,14 +20,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     QuestionController _controller = Get.put(QuestionController());
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-            color: Color(0xffefeefc)//#efeefc
-        ),
+        decoration: BoxDecoration(color: Color(0xffefeefc) //#efeefc
+            ),
         child: Stack(
           children: [
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -40,9 +40,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Form(
                       key: _formKey,
                       child: TextFormField(
-                        style: TextStyle(
-                            color: Colors.black
-                        ),
+                        style: TextStyle(color: Colors.black),
                         validator: (value) {
                           if (value.isEmpty) {
                             return 'Please enter a name';
@@ -54,22 +52,33 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         },
                         controller: nameController,
                         decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Color(0xffb1b2ff), width: 2),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
+                            ),
+                          ),
                           filled: true,
                           fillColor: Colors.white,
                           hintText: "Enter the name",
-                          hintStyle: TextStyle(
-                              color: Colors.grey
-                          ),
-                          contentPadding: EdgeInsets.symmetric(vertical: 35, horizontal: 20),
+                          hintStyle: TextStyle(color: Colors.grey[600]),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 35, horizontal: 20),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(19)),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
+                            ),
                           ),
                         ),
                       ),
                     ),
                     Spacer(flex: 3), // 1/6
                     ElevatedButton(
-                      onPressed: () {if(_formKey.currentState.validate()) Get.to(QuizScreen());},
+                      onPressed: () {
+                        if (_formKey.currentState.validate())
+                          Get.to(QuizScreen());
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xffcdf0ea),
                         elevation: 0,
@@ -78,7 +87,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           borderRadius: BorderRadius.all(Radius.circular(19.0)),
                         ),
                       ),
-                      child: Text("Start Quiz", style: TextStyle(color: Colors.black),),
+                      child: Text(
+                        "Start Quiz",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: "Outfit",
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                     Spacer(flex: 2), // it will take 2/6 spaces
                   ],
