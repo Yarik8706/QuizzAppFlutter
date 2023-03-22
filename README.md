@@ -1,7 +1,7 @@
 # QUIZZAPP
 
-Web application about creating text tests. There is a main page and sample tests.
-Url: https://quizzapp-7647b.web.app/#/
+Web application about creating text tests. There is a main page and sample tests. <br>
+Url: https://quizzapp-7647b.web.app/#/ <br>
 Exsample test: https://quizzapp-7647b.web.app/#/quiz1
 
 ## Getting Started
