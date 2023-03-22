@@ -1,6 +1,8 @@
-# flutter_quizzapp
+# QUIZZAPP
 
-A new Flutter project.
+Web application about creating text tests. There is a main page and sample tests.
+Url: https://quizzapp-7647b.web.app/#/
+Exsample test: https://quizzapp-7647b.web.app/#/quiz1
 
 ## Getting Started
 
