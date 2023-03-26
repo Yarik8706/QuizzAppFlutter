@@ -34,6 +34,7 @@ dependencies:
   fl_chart: ^0.61.0
   firebase_core: ^1.19.2
   cloud_firestore:
+  animated_text_kit:
 
 
 dependency_overrides:
@@ -69,3 +70,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/site/purpleicons.png
+    - assets/site/
+    - assets/pictures/

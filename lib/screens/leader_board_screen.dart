@@ -77,13 +77,13 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
 
     switch(index){
       case 0:
-        imagePath = "assets/pictures/gold.png";
+        imagePath = "pictures/gold.png";
         break;
       case 1:
-        imagePath = "assets/pictures/silver.png";
+        imagePath = "pictures/silver.png";
         break;
       case 2:
-        imagePath = "assets/pictures/bronze.png";
+        imagePath = "pictures/bronze.png";
         break;
     }
 
@@ -114,11 +114,11 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                   child: Text("Quiz point: ${quizzCount}", style: Theme.of(context).textTheme.titleSmall,))
             ],
           ),
-          // imagePath != '' ? Container(
-          //   height: 50,
-          //   width: 50,
-          //   child: Image.asset(imagePath, fit: BoxFit.cover),
-          // ) : Container()
+          imagePath != '' ? Container(
+            height: 50,
+            width: 50,
+            child: Image.asset(imagePath, fit: BoxFit.cover),
+          ) : Container()
         ],
       ),
     );

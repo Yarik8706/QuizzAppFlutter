@@ -22,6 +22,7 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     QuestionController _controller = Get.put(QuestionController());
     return Container(
       margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -77,7 +78,7 @@ class QuestionCard extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffcdf0ea),
                       padding:
-                          EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 0.08 * screenSize.width, vertical: 10),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(19.0)),
                       ),
@@ -95,7 +96,7 @@ class QuestionCard extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffb1b2ff),
                       padding:
-                          EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 0.1 * screenSize.width, vertical: 10),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(19.0)),
                       ),

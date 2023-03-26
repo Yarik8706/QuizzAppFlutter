@@ -1,11 +1,26 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_quizzapp/constrans.dart';
+import 'package:flutter_quizzapp/screens/sait_screen/sait_screen.dart';
 import 'package:flutter_quizzapp/screens/welcome_screen.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+
+  if(kIsWeb){
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: Constants.apiKey,
+            appId: Constants.appId,
+            messagingSenderId: Constants.messagingSenderId,
+            projectId: Constants.projectId));
+  }
+
+  else{
+    await Firebase.initializeApp();
+  }
 
   runApp(MyApp());
 }
@@ -49,9 +64,28 @@ class MyApp extends StatelessWidget {
           labelMedium: TextStyle().copyWith(
               fontFamily: "Comfortaa", color: Colors.black, fontSize: 20),
           displaySmall: TextStyle().copyWith(color: Colors.grey, fontSize: 16),
+          displayMedium: TextStyle(
+              fontFamily: "Outfit",
+              fontSize: 23,
+              letterSpacing: 1.2,
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          ),
+          headlineMedium: TextStyle(
+              fontFamily: "Outfit",
+              height: 1.2,
+              letterSpacing: 1.2,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+          ),
         ),
       ),
-      home: WelcomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MainSaitScreen(),
+        '/quiz1': (context) => const WelcomeScreen()
+      },
     );
   }
 }

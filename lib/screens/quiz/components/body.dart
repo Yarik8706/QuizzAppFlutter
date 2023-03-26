@@ -40,7 +40,7 @@ class Body extends StatelessWidget {
                   onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questions.length,
                   itemBuilder: (context, index) => QuestionCard(
-                      question: _questionController.questions[index], questionNumber: "Question ${index+1}/${_questionController.questions.length}"),
+                      question: _questionController.questions[index], questionNumber: "Question ${index+1} of ${_questionController.questions.length}"),
                 ),
               ),
             ],

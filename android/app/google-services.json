@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "24317133550",
-    "project_id": "quizzapp-ab643",
-    "storage_bucket": "quizzapp-ab643.appspot.com"
+    "project_number": "613264481639",
+    "project_id": "quizzapp-7647b",
+    "storage_bucket": "quizzapp-7647b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:24317133550:android:98b01bda8ea64d1d42e9ff",
+        "mobilesdk_app_id": "1:613264481639:android:1d482d2d2f52641eb263c2",
         "android_client_info": {
           "package_name": "com.flutter_quizzapp.flutter_quizzapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "24317133550-itjbl6dhgk7n658ted2m0btkobfo72d6.apps.googleusercontent.com",
+          "client_id": "613264481639-r25o0h3uf07ultsp9hr8a67usarvn4ns.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDFVpc2nWLaOAEq1mi5OvRRExhrBhCypSI"
+          "current_key": "AIzaSyCDpYj_bfY5GHuRF7nzjCJi4C1hJElfibQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "24317133550-itjbl6dhgk7n658ted2m0btkobfo72d6.apps.googleusercontent.com",
+              "client_id": "613264481639-r25o0h3uf07ultsp9hr8a67usarvn4ns.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
