@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quizzapp/constants.dart';
 import 'package:flutter_quizzapp/controllers/question_controller.dart';
 import 'package:flutter_quizzapp/models/Questions.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/default_transitions.dart';
 
 import 'option.dart';
 import 'timer.dart';
@@ -77,8 +75,8 @@ class QuestionCard extends StatelessWidget {
                     onPressed: _controller.nextQuestion,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffcdf0ea),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 0.08 * screenSize.width, vertical: 10),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 0.08 * screenSize.width, vertical: 10),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(19.0)),
                       ),
@@ -95,8 +93,8 @@ class QuestionCard extends StatelessWidget {
                     onPressed: _controller.nextQuestion,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffb1b2ff),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 0.1 * screenSize.width, vertical: 10),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 0.1 * screenSize.width, vertical: 10),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(19.0)),
                       ),

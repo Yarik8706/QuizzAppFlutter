@@ -4,14 +4,8 @@ import 'package:flutter_quizzapp/models/Questions.dart';
 import 'package:flutter_quizzapp/models/User.dart';
 import 'package:flutter_quizzapp/screens/score_screen.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
-
-enum AnswerType {
-  True,
-  Skip,
-  False
-}
+enum AnswerType { True, Skip, False }
 // We use get package for our state management
 
 class QuestionController extends GetxController
@@ -65,11 +59,12 @@ class QuestionController extends GetxController
     // so our plan is to fill the progress bar within 60s
     _timerAnimationController =
         AnimationController(duration: Duration(seconds: 60), vsync: this);
-    _animation = Tween<double>(begin: 0, end: 1).animate(_timerAnimationController)
-      ..addListener(() {
-        // update like setState
-        update();
-      });
+    _animation =
+        Tween<double>(begin: 0, end: 1).animate(_timerAnimationController)
+          ..addListener(() {
+            // update like setState
+            update();
+          });
 
     // start our animation
     // Once 60s is completed go to the next qn
@@ -109,7 +104,6 @@ class QuestionController extends GetxController
     // });
   }
 
-
   void nextQuestion() {
     if (selectedAns == -1) _answersType.add(AnswerType.Skip);
     if (_questionNumber.value != _questions.length) {
@@ -132,9 +126,8 @@ class QuestionController extends GetxController
 
   Future addUserData() async {
     final docUser = FirebaseFirestore.instance.collection("users").doc();
-    final user = User(docUser.id, user_name, (correctAns /
-        (questions.length + 1) * 100)
-        .toInt());
+    final user = User(docUser.id, user_name,
+        (correctAns / (questions.length + 1) * 100).toInt());
 
     await docUser.set(user.toJson());
   }

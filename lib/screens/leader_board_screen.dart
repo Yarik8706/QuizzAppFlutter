@@ -1,8 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_quizzapp/models/User.dart';
 
 class LeaderBoardScreen extends StatefulWidget {
   const LeaderBoardScreen({Key key}) : super(key: key);
@@ -12,7 +9,6 @@ class LeaderBoardScreen extends StatefulWidget {
 }
 
 class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
-
   List users = [];
 
   @override
@@ -35,34 +31,45 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
           Container(
             margin: EdgeInsets.only(top: 40),
             child: Center(
-                child: Text("Leader Board", style: Theme.of(context).textTheme.bodyLarge,)
-            ),
+                child: Text(
+              "Leader Board",
+              style: Theme.of(context).textTheme.bodyLarge,
+            )),
           ),
           Container(
-            margin: EdgeInsets.only(top: 30, left: 10, right: 10),
-            padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Color(0xffefeefc),
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-            ),
-            child: Container(
-                    height: 550,
-                    child: ListView(
-                        scrollDirection: Axis.vertical,
-                      children: [
-                        users.length == 0 ? Center(child: CircularProgressIndicator(),) : Container(),
-                    ...List.generate(users.length, (index) => addUserWidget(context, users[index]["name"], users[index]["quizzCount"], index))
-                      ]),
-                  )
-            ),
+              margin: EdgeInsets.only(top: 30, left: 10, right: 10),
+              padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xffefeefc),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30)),
+              ),
+              child: Container(
+                height: 550,
+                child: ListView(scrollDirection: Axis.vertical, children: [
+                  users.length == 0
+                      ? Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : Container(),
+                  ...List.generate(
+                      users.length,
+                      (index) => addUserWidget(context, users[index]["name"],
+                          users[index]["quizzCount"], index))
+                ]),
+              )),
         ],
       ),
     );
   }
 
-  void getUsers() async{
-    await FirebaseFirestore.instance.collection("users").orderBy("quizzCount").get()
+  void getUsers() async {
+    await FirebaseFirestore.instance
+        .collection("users")
+        .orderBy("quizzCount")
+        .get()
         .then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((task) {
         setState(() {
@@ -72,10 +79,11 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
     });
   }
 
-  Container addUserWidget(BuildContext context, String name, int quizzCount, int index){
+  Container addUserWidget(
+      BuildContext context, String name, int quizzCount, int index) {
     String imagePath = '';
 
-    switch(index){
+    switch (index) {
       case 0:
         imagePath = "pictures/gold.png";
         break;
@@ -102,23 +110,36 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
               Row(
                 children: [
                   Container(
-                      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                      child: Text("${index+1}.", style: Theme.of(context).textTheme.titleSmall,)),
+                      margin:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      child: Text(
+                        "${index + 1}.",
+                        style: Theme.of(context).textTheme.titleSmall,
+                      )),
                   Container(
-                      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                      child: Text("${name}", style: Theme.of(context).textTheme.titleSmall,)),
+                      margin:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      child: Text(
+                        "${name}",
+                        style: Theme.of(context).textTheme.titleSmall,
+                      )),
                 ],
               ),
               Container(
                   margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                  child: Text("Quiz point: ${quizzCount}", style: Theme.of(context).textTheme.titleSmall,))
+                  child: Text(
+                    "Quiz point: ${quizzCount}",
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ))
             ],
           ),
-          imagePath != '' ? Container(
-            height: 50,
-            width: 50,
-            child: Image.asset(imagePath, fit: BoxFit.cover),
-          ) : Container()
+          imagePath != ''
+              ? Container(
+                  height: 50,
+                  width: 50,
+                  child: Image.asset(imagePath, fit: BoxFit.cover),
+                )
+              : Container()
         ],
       ),
     );

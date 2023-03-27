@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quizzapp/controllers/question_controller.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../../../constants.dart';
-
 class ProgressBar extends StatelessWidget {
   const ProgressBar({
     Key key,
@@ -33,7 +31,10 @@ class ProgressBar extends StatelessWidget {
               LayoutBuilder(
                 builder: (context, constraints) => Container(
                   // from 0 to 1 it takes 60s
-                  width: constraints.maxWidth * (controller.questionNumber.value / controller.questions.length) - 1,
+                  width: constraints.maxWidth *
+                          (controller.questionNumber.value /
+                              controller.questions.length) -
+                      1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
                     color: Colors.white,

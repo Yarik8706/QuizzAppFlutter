@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quizzapp/constants.dart';
 import 'package:flutter_quizzapp/controllers/question_controller.dart';
 import 'package:get/get.dart';
 
@@ -40,7 +39,9 @@ class Body extends StatelessWidget {
                   onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questions.length,
                   itemBuilder: (context, index) => QuestionCard(
-                      question: _questionController.questions[index], questionNumber: "Question ${index+1} of ${_questionController.questions.length}"),
+                      question: _questionController.questions[index],
+                      questionNumber:
+                          "Question ${index + 1} of ${_questionController.questions.length}"),
                 ),
               ),
             ],
